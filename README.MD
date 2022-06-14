@@ -2,3 +2,4 @@
 
 python 
 flask
+jquery
