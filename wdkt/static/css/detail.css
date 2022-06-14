@@ -1,0 +1,48 @@
+.page-title{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.col-8{
+    background-color:#fff;
+}
+
+
+.page-author{
+    margin-top: 10px;
+    text-align: right;
+    font-size:14px;
+    color: rgb(109, 103, 103)
+}
+
+.user-header{
+    width:30px;
+    height:30px;
+    border-radius:3px;
+}
+
+.comment-group{
+    list-style: none;
+    padding: 0;
+
+}
+
+.comment-count{
+    font-size:14px;
+}
+
+.username{
+    color: rgb(109, 103, 103);
+    font-size: 14px;
+}
+
+.create-time{
+    color: rgb(109, 103, 103);
+    float: right;
+    font-size:14px;
+}
+
+.comment-content{
+    margin-top: 10px;
+    font-size: 13px;
+}
