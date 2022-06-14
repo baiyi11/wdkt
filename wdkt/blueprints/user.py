@@ -106,3 +106,7 @@ def email_captcha():
     else:
         return jsonify({"code":400,"message":"请先传递邮箱"})
     
+
+@bp.route("edit")
+def edit():
+    pass
