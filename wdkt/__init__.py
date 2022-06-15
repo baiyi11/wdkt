@@ -4,7 +4,7 @@ from wdkt.blueprints import qa_bp,user_bp
 from wdkt.exts  import db,mail,migrate
 
 
-def create_app(config_name=None):
+def create_app(config_name=None) ->Flask:
     """工厂函数"""
     if config_name is None:
         config_name = config["development"]
@@ -23,13 +23,13 @@ def create_app(config_name=None):
     return  app
 
 
-def register_blueprints(app):
+def register_blueprints(app) ->None:
     """注册蓝图"""
     app.register_blueprint(qa_bp)
     app.register_blueprint(user_bp)
 
 
-def register_extensions(app):
+def register_extensions(app) ->None:
     """注册扩展插件"""
     db.init_app(app)
     mail.init_app(app)

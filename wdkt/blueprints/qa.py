@@ -10,11 +10,12 @@ Reference:
 
 from flask import Blueprint, render_template, session, url_for, redirect, request, g, flash, jsonify, current_app
 from wdkt.decorators import login_required
-from wdkt.models import QaModel, UserModel, CommentModel
+from wdkt.models import QaModel, UserModel, CommentModel,QaPvModel
 from wdkt.forms import QaForm, CommentForm
 from datetime import datetime
 from wdkt.exts import db
-from sqlalchemy import or_, func
+from sqlalchemy import or_, func,and_
+from wdkt.utils  import today
 
 
 bp = Blueprint("qa", __name__)
@@ -140,7 +141,21 @@ def question_detail(question_id):
         .order_by(CommentModel.create_time.desc())  \
         .all()
 
-    return render_template("detail.html", question=question, comments=comments)
+    # PV收集
+    now=today()
+    qa_pv_model=QaPvModel.query.filter(and_(QaPvModel.question_id==question_id,QaPvModel.browse_date==now)).first()
+    
+    if qa_pv_model:
+       qa_pv_model.pv=qa_pv_model.pv+1
+       db.session.commit()
+    else:
+       qa_pv_model=QaPvModel(question_id=question_id,browse_date=now,pv=1)
+       db.session.add(qa_pv_model)
+       db.session.commit()
+
+    pv=db.session.query(func.sum(QaPvModel.pv)).filter(QaPvModel.question_id==question_id).scalar()
+    
+    return render_template("detail.html", question=question, comments=comments,pv=pv)
 
 
 @bp.route("/comment/<int:question_id>", methods=["POST"])

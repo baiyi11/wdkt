@@ -9,7 +9,7 @@ Reference:
 
 
 from wdkt.exts import db
-from sqlalchemy import  Column ,BigInteger, Integer,Text,String,DateTime
+from sqlalchemy import  Column ,BigInteger, Integer,Text,String,DateTime,Date
 
 class EmailCaptchaModel(db.Model):
     """邮箱验证码模型"""
@@ -54,7 +54,7 @@ class CommentModel(db.Model):
     # p_id=Column(BigInteger(),comment="回复评论ID")
     is_deleted=Column(Integer(),default=0,comment='是否删除')
 
-class CommentUp(db.Model):
+class CommentUpModel(db.Model):
     """提问点赞模型"""
     __tablename__ = 'comment_up'
     id=Column(BigInteger(), primary_key=True,autoincrement=True)
@@ -63,8 +63,17 @@ class CommentUp(db.Model):
     is_deleted=Column(Integer(),default=0,comment='是否删除')
 
 
-class Category(db.Model):
+class CategoryModel(db.Model):
     """文章分类模型"""
     __tablename__ = 'category'
     id=Column(BigInteger(), primary_key=True,autoincrement=True)
     create_time=Column(DateTime,comment='创建日期')
+
+
+class QaPvModel(db.Model):
+    """问题浏览量"""
+    __tablename__ = 'question_pv'
+    id=Column(BigInteger(), primary_key=True,autoincrement=True)
+    browse_date=Column(Date,comment='浏览日期')
+    question_id=Column(BigInteger(),nullable=False,comment='问题ID')
+    pv=Column(BigInteger(),nullable=False,comment='PV')
