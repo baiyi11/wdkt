@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 {% block title %}详情{% endblock %}
@@ -11,15 +10,23 @@
 <div class="row" style="margin-top:20px">
     <div class="col"></div>
     <div class="col-8">
-        <h3 class="page-title">{{question.title}}</h3>
-        <p class="page-author">
-            <span>{{question.username}} </span>
-            <span>{{question.create_time}}</span>
-        </p>
+        <div>
+            <h3 class="page-title">{{question.title}}</h3>
+        </div>
+        <div>
+            <div class="question-left"> <span class="question-image"><img class="user-avatar" src="../static/images/head.png" alt=""></span>
+                <span class="question-author">{{question.username}}</span>
+            </div>
+            <div class="question-right"><span class="question-time">{{moment(question.create_time,"YYYY-MM-DD
+                    hh:mm:ss").fromNow()}}</span>
+            </div>
+
+        </div>
+
+
         <hr>
         <p class="question-content">{{question.content}}</p>
         <hr>
-
 
         <form action="{{url_for('qa.comment',question_id=question.id)}}" method="post">
             <div class="form-group">
@@ -48,7 +55,8 @@
                 <div class="user-info">
                     <img class="user-header" src="{{url_for('static',filename='images/comment-user.png')}}" alt="">
                     <span class="username">{{comment.username}}</span>
-                    <span class="create-time">{{comment.create_time}}</span>
+                    <span class="create-time">{{moment(comment.create_time,"YYYY-MM-DD
+                        hh:mm:ss").fromNow()}}</span>
                 </div>
                 <p class="comment-content">{{comment.content}}</p>
             </li>

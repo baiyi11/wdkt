@@ -6,4 +6,6 @@ flask
 bootstrap
 jquery 
 
-![Alt](./demo.png)
+![Alt](./images/demo.png)
+
+![Alt](./images/demo2.png)
