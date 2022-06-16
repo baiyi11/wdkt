@@ -1,11 +1,3 @@
-'''
-Description: 
-Author: baiyi
-Date: 2022-02-24 14:49:49
-LastEditTime: 2022-04-02 15:07:13
-LastEditors: baiyi
-Reference: 
-'''
 from wdkt.models import EmailCaptchaModel,UserModel
 import  wtforms
 from wtforms.validators import email,length,EqualTo

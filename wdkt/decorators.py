@@ -1,11 +1,3 @@
-'''
-Description: 
-Author: baiyi
-Date: 2022-03-01 15:38:34
-LastEditTime: 2022-03-30 13:17:27
-LastEditors: baiyi
-Reference: 
-'''
 from flask  import g,redirect,url_for
 from functools import wraps
 

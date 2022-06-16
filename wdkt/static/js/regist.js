@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 function bindCaptchaBtnClick() {
     $("#captcha-btn").click(function () {
         var $this=$(this);

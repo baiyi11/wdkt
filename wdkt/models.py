@@ -1,13 +1,3 @@
-'''
-Description: 
-Author: baiyi
-Date: 2022-02-23 16:38:15
-LastEditTime: 2022-04-02 15:46:42
-LastEditors: baiyi
-Reference: 
-'''
-
-
 from wdkt.exts import db
 from sqlalchemy import  Column ,BigInteger, Integer,Text,String,DateTime,Date
 

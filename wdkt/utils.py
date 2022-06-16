@@ -1,11 +1,3 @@
-'''
-Description: 
-Author: baiyi
-Date: 2022-02-23 17:17:57
-LastEditTime: 2022-02-24 10:10:02
-LastEditors: baiyi
-Reference: 
-'''
 import string
 import random
 from datetime  import datetime
