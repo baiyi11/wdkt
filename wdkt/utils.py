@@ -2,7 +2,7 @@ import string
 import random
 from datetime  import datetime
 
-def make_captcha(digit: int) ->string:
+def make_captcha(digit: int) ->str:
     """
     邮箱验证码工具
 
@@ -15,7 +15,7 @@ def make_captcha(digit: int) ->string:
     return captcha
 
 
-def  today()->string:
+def  today() ->str:
     """
     获取当前日期
     """
