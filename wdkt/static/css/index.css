@@ -34,6 +34,9 @@
     font-weight: 900;
 }
 
+.question-title {
+    margin-top: 5px;
+}
 
 .question-content {
     margin-top: 10px;
@@ -49,14 +52,14 @@
 
 
 
-.question-left{
-    float:left;
+.question-left {
+    float: left;
     width: 50%;
-    
+
 }
 
-.question-right{
-    float:rigth;
+.question-right {
+    float: rigth;
     margin-left: 50%;
     text-align: right;
 
@@ -67,7 +70,7 @@
     height: 25px;
     border-radius: 3px;
     margin-top: 5px;
-    margin-left:5px;
+    margin-left: 5px;
 }
 
 .question-author {
@@ -85,12 +88,12 @@
     margin-top: 5px;
 }
 
-.btn-primary{
+.btn-primary {
 
     width: 70px;
     height: 30px;
     background: None;
-    border:none;
+    border: none;
     border-radius: 3px;
 
 }
