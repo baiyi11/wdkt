@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="../static/css/init.css">
     <script src="../static/js/jquery/jquery-3.6.0.min.js"></script>
     <script src="../static/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../static/js/moment/moment.js"></script>
+
+    {{ moment.include_moment() }}
+    {{ moment.lang("zh-CN") }} 
     {% block head %}{% endblock %}
 </head>
 

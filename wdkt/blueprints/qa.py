@@ -1,13 +1,3 @@
-'''
-Description: 
-Author: baiyi
-Date: 2022-02-22 16:06:51
-LastEditTime: 2022-04-02 21:26:36
-LastEditors: baiyi
-Reference: 
-'''
-
-
 from flask import Blueprint, render_template, session, url_for, redirect, request, g, flash, jsonify, current_app
 from wdkt.decorators import login_required
 from wdkt.models import QaModel, UserModel, CommentModel,QaPvModel

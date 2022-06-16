@@ -31,10 +31,18 @@
             {% for question in questions %}
             <li>
                 <div class="question-main">
-
-                    <div class="question-title"><a
-                            href="{{url_for('qa.question_detail',question_id=question.id)}}">{{question.title}}</a>
+                    <div>
+                        <div>
+                            
+                            <span class="question-image"><img class="user-avatar" src="../static/images/head.png"
+                                    alt=""></span>
+                            <span class="question-author">{{question.username}}</span>
+                        </div>
+                        <div class="question-title"><a
+                                href="{{url_for('qa.question_detail',question_id=question.id)}}">{{question.title}}</a>
+                        </div>
                     </div>
+
 
                     <div class="question-content">
                         {% if question.content |length > 200 %}
@@ -50,8 +58,7 @@
                             <!-- <span class="comment-cnt">评论:{{question.comment_cnt}}条</span> -->
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn-primary" data-toggle="modal"
-                                data-target="#exampleModal">
+                            <button type="button" class="btn-primary" data-toggle="modal" data-target="#exampleModal">
                                 <span class="comment-cnt">评论:{{question.comment_cnt}}条</span>
                             </button>
 
@@ -133,16 +140,10 @@
 
                         </div>
 
-
-
-
-
-
                         <div class="question-right">
-                            <span class="question-image"><img class="side-question-avatar"
-                                    src="../static/images/head.png" alt=""></span>
-                            <span class="question-author">{{question.username}}</span>
-                            <span class="question-time">{{question.create_time}}</span>
+
+                            <span class="question-time">{{moment(question.create_time,"YYYY-MM-DD
+                                hh:mm:ss").fromNow()}}</span>
                         </div>
 
 
