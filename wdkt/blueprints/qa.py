@@ -21,6 +21,8 @@ class Question():
         self.comment_cnt = comment_cnt
 
 
+
+
 @bp.route("/", defaults={"page": 1})
 @bp.route("/page/<int:page>")
 def index(page):
@@ -58,6 +60,24 @@ def index(page):
         .filter(CommentModel.question_id.in_(question_ids))  \
         .group_by(CommentModel.question_id)   \
         .all()
+
+
+    comments = db.session \
+    .query(CommentModel.id, CommentModel.create_time, CommentModel.content, UserModel.username,CommentModel.question_id) \
+    .join(UserModel, CommentModel.user_id == UserModel.id)  \
+    .filter(CommentModel.question_id.in_(question_ids)) \
+    .order_by(CommentModel.create_time.desc())  \
+    .all()
+
+    comments_list=[]
+    for  question_id in question_ids:
+        comment_list=[]
+        for  comment  in comments:
+            if question_id == comment.question_id:
+                comment_list.append(comment)
+        comments_list.append({"comment":comment_list,"question_id":question_id})
+
+    
 
     # 左连接取评论数
     new_questions = []
@@ -169,7 +189,4 @@ def comment(question_id):
             return redirect(url_for("qa.question_detail", question_id=question_id))
 
 
-@bp.route("/search")
-def search():
 
-    return render_template("base copy.html")
