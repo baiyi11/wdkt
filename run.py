@@ -2,7 +2,7 @@ from wdkt import  create_app
 from flask import session,g
 from wdkt.models import UserModel
 
-app=create_app("development")
+app=create_app(config_name="production")
 
 @app.before_request
 def get_userid():
