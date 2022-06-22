@@ -2,6 +2,11 @@
 配置表
 """
 
+import logging
+import os
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+log_dir = os.path.join(basedir, os.getenv('LOG_DIR', 'logs'))
 
 class BaseConfig():
     """基础配置"""
@@ -22,6 +27,10 @@ class BaseConfig():
 
     # 首页每页行数
     HOME_PAGE_PER_PAGE = 5
+    
+    # 日志
+    LOG_LEVEL = logging.INFO
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
 
 
 class ProductionConfig(BaseConfig):
