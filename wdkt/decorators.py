@@ -2,7 +2,7 @@ from flask  import g,redirect,url_for
 from functools import wraps
 
 def login_required(func):
-    """判断是否登录装饰器,已登录继续操作,未登录重定向登录页面"""
+    """装饰器判断是否登录,已登录继续操作,未登录重定向登录页面"""
 
     @wraps(func)
     def wrapper(*args, **kwargs):
